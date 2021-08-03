@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
 import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
-export default class Thing extends BaseModel {
+export default class Lamp extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
@@ -22,6 +22,27 @@ export default class Thing extends BaseModel {
 
   @column()
   public user_id: number
+
+  @column()
+  public brightness: number
+
+  @column()
+  public sync: boolean
+
+  @column()
+  public timer:boolean
+
+  @column()
+  public start_hour: string
+
+  @column()
+  public stop_hour: string
+
+  @column()
+  public move_sensor: boolean
+
+  @column()
+  public is_move: boolean
 
 
   @column.dateTime({ autoCreate: true })

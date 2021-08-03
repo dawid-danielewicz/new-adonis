@@ -25,13 +25,21 @@ Route.get('/', async () => {
 })
 
 Route.group(() => {
-  Route.get('/things', 'ThingsController.index').as('things.index')
-  Route.post('/things', 'ThingsController.store').as('things.create')
-  Route.get('/things/:id', 'ThingsController.show').as('things.show')
-  Route.put('/things/:id', 'ThingsController.update').as('things.update')
-  Route.delete('/things/:id', 'ThingsController.destroy').as('things.delete')
-  Route.put('/things/:id/sensor', 'ThingsController.updateSensor').as('things.sensor')
-  Route.put('/things/:id/lamp', 'ThingsController.updateLamp').as('things.lamp')
+  Route.get('/things', 'LampsController.index').as('things.index')
+  Route.post('/things', 'LampsController.store').as('things.create')
+  Route.get('/things/:id', 'LampsController.show').as('things.show')
+  Route.put('/things/:id', 'LampsController.update').as('things.update')
+  Route.delete('/things/:id', 'LampsController.destroy').as('things.delete')
+  Route.put('/things/:id/sensor', 'LampsController.updateSensor').as('things.sensor')
+  Route.put('/things/:id/lamp', 'LampsController.updateLamp').as('things.lamp')
+  Route.put('/things/:id/brightness', 'LampsController.updateBrightness').as('things.brightness')
+  Route.put('/things/:id/timer', 'LampsController.setTimer').as('things.timer')
+  Route.put('/things/:id/timerUpdate', 'LampsController.updateTimer').as('things.timerUpdate')
+  Route.put('/things/:id/moveSensor', 'LampsController.setMoveSensor').as('things.moveSensor')
+  Route.put('/things/:id/move', 'LampsController.toggleMove').as('things.move')
+  Route.put('/things/:id/sync', 'LampsController.toggleSync').as('things.sync')
+
+  Route.get('/user', 'UsersController.user').as('user')
 }).middleware('auth')
 
 Route.post('/register', 'UsersController.register').as('register')

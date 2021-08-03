@@ -34,4 +34,9 @@ export default class UsersController {
 
     return token
   }
+
+  public async user({ auth }: HttpContextContract) {
+    const user = await auth.user
+    return user
+  }
 }
